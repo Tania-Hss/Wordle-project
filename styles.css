@@ -8,4 +8,21 @@
     width: auto;
     border-bottom: solid 1px #3a3a3d;
 }
+.game-container {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gameboard {
+    width: auto;
+    margin-bottom: 30px;
+    }
+    
+.keyboard{
+    display: flex;
+    flex-wrap: wrap
+    
+}
 
