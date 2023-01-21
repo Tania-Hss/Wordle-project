@@ -2,27 +2,61 @@
     font-family: fantasy;
     color: white;
     background-color: #0f0f10;
+    
 }
-.title {
-    text-align: center;
-    width: auto;
-    border-bottom: solid 1px #3a3a3d;
+body {
+    height: 100%;
+
 }
+
+
 .game-container {
-    height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    
+}
+
+.title {
+    text-align: center;
+    width: 600px;
+    border-bottom: solid 2px #3a3a3d;
 }
 
 .gameboard {
-    width: auto;
-    margin-bottom: 30px;
-    }
-    
-.keyboard{
-    display: flex;
-    flex-wrap: wrap
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 3px;
+    padding: 20px 10px;
+}
+
+.tile {
+    border: solid 2px grey;
+    width: 40px;
+    height: 42px;
     
 }
 
+.keyboard {
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   
+}
+
+.row button {
+    height: 35px;
+    width: 30px;
+    margin: 1px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    background-color: #535354;
+}
+
+.row #enter {
+    width: 60px;
+}
+
+.row #backspace {
+    width: 60px;
+}
