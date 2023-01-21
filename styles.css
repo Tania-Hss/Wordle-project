@@ -1,0 +1,10 @@
+* {
+    font-family: fantasy;
+    color: white;
+    background-color: #0f0f10;
+}
+.title {
+    text-align: center;
+    width: auto;
+    border-bottom: solid 1px #3d3d43;
+}
