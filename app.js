@@ -1,6 +1,8 @@
 const tileDisplay = document.querySelector('.gameboard');
 let currentTile = 1
 
+let winningWord = 'start'
+
 function createTiles() {
     for(i = 0; i < 30; i++) {
     const tiles = document.createElement('div')
@@ -30,8 +32,12 @@ function addLetterToTiles(letter) {
     }
 }
 
-function deleteButton () {
+function enterButton() {
     document.getElementById("enter").click(console.log('yayyyyy'));
+}
+
+for (let i = 0; i < winningWord.length; i++) {
+    console.log(winningWord.charAt(i));
 }
 
 
