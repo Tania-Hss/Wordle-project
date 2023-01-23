@@ -30,7 +30,7 @@ function addLetterToTiles(letter) {
     }
 }
 
-function myFunction () {
+function deleteButton () {
     document.getElementById("enter").click(console.log('yayyyyy'));
 }
 
