@@ -33,8 +33,11 @@ body {
 .tile {
     border: solid 2px grey;
     width: 40px;
-    height: 42px;
+    height: 40px;
+    font-size: 40px;
     
+
+
 }
 
 .keyboard {
@@ -51,6 +54,7 @@ body {
     margin-bottom: 2px;
     border-radius: 4px;
     background-color: #535354;
+    
 }
 
 .row #enter {

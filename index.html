@@ -13,42 +13,44 @@
             <div class="title">
                 <h1>Wordle</h1>
             </div>
-            <div class="notification"></div>
+            <div class="text"></div>
             <div class="gameboard"></div>
             <div class="keyboard">
                 <div class="row" id="row-0">
-                    <button class="key">q</button>
-                    <button class="key">w</button>
-                    <button class="key">e</button>
-                    <button class="key">r</button>
-                    <button class="key">t</button>
-                    <button class="key">y</button>
-                    <button class="key">u</button>
-                    <button class="key">i</button>
-                    <button class="key">o</button>
-                    <button class="key">p</button>
+                    <button class="key" data-set="Q">Q</button>
+                    <button class="key" data-set="W">W</button>
+                    <button class="key" data-set="E">E</button>
+                    <button class="key" data-set="R">R</button>
+                    <button class="key" data-set="T">T</button>
+                    <button class="key" data-set="Y">Y</button>
+                    <button class="key" data-set="U">U</button>
+                    <button class="key" data-set="I">I</button>
+                    <button class="key" data-set="O">O</button>
+                    <button class="key" data-set="P">P</button>
                 </div>
                 <div class="row" id="row-1">
-                    <button class="key">a</button>
-                    <button class="key">s</button>
-                    <button class="key">d</button>
-                    <button class="key">f</button>
-                    <button class="key">g</button>
-                    <button class="key">h</button>
-                    <button class="key">j</button>
-                    <button class="key">k</button>
-                    <button class="key">l</button>
+                    <button class="key" data-set="A">A</button>
+                    <button class="key" data-set="S">S</button>
+                    <button class="key" data-set="D">D</button>
+                    <button class="key" data-set="F">F</button>
+                    <button class="key" data-set="G">G</button>
+                    <button class="key" data-set="H">H</button>
+                    <button class="key" data-set="J">J</button>
+                    <button class="key" data-set="K">K</button>
+                    <button class="key" data-set="L">L</button>
                 </div>
                 <div class="row" id="row-2">
-                    <button class="key" id="backspace">&#9249;</button>
-                    <button class="key">z</button>
-                    <button class="key">x</button>
-                    <button class="key">c</button>
-                    <button class="key">v</button>
-                    <button class="key">b</button>
-                    <button class="key">n</button>
-                    <button class="key">m</button>
-                    <button class="key" id="enter">ENTER</button>
+                    <button class="key" data-set="Z">Z</button>
+                    <button class="key" data-set="X">X</button>
+                    <button class="key" data-set="C">C</button>
+                    <button class="key" data-set="V">V</button>
+                    <button class="key" data-set="B">B</button>
+                    <button class="key" data-set="N">N</button>
+                    <button class="key" data-set="M">M</button>
+                </div>
+                <div class="row2" id="row-3">
+                    <button class="key" data-set="backspace" id="backspace">⌫</button>
+                    <button id="enter" onclick="myFunction()">ENTER</button>
                 </div>
             </div>
         </div>
