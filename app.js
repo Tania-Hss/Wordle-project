@@ -1,6 +1,6 @@
 const tileDisplay = document.querySelector('.gameboard');
 let currentTile = 1;
-let winningWord = 'start';
+let winningWord = 'START';
 
 
 // Create a global variable (object or array)that saves each letter the player enters.
@@ -46,9 +46,10 @@ const enterbtn = document.querySelector('#enter')
 enterbtn.addEventListener('click', () => {
     console.log('clicked Enter')
     console.log(playerLetters)
-    
+    let guess = playerLetters.join("")
+    console.log(guess)
+    console.log(winningWord)
 })
-
 
 
 
