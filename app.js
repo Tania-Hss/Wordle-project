@@ -4,7 +4,7 @@ let winningWord = 'START';
 
 
 // Create a global variable (object or array)that saves each letter the player enters.
-const playerLetters = []
+let playerLetters = []
 
 
 function createTiles() {
@@ -13,6 +13,7 @@ function createTiles() {
         tiles.classList.add('tile')
         tiles.setAttribute('id', i + 1)
         tileDisplay.appendChild(tiles);
+        tiles.classList.add('animate__animated');
     }
 }
 createTiles()
@@ -37,7 +38,7 @@ function addLetterToTiles(letter) {
         tile.textContent = letter
         currentTile = currentTile + 1
     } else {
-        window.alert('your out of guesses!')
+        window.alert(`You Lose! The Word Is ${winningWord}`)
     }
 }
 
@@ -46,25 +47,25 @@ const enterbtn = document.querySelector('#enter')
 enterbtn.addEventListener('click', () => {
     console.log('clicked Enter')
     console.log(playerLetters)
-    let guess = playerLetters.join("")
-    console.log(guess)
-    console.log(winningWord)
+    newGuess()
+    
 })
 
+function newGuess() {
+    let guess = playerLetters.join('')
+    console.log(guess)
+    playerLetters = []
+    if (guess === winningWord){
+        window.alert('You Win!')
+    }
+    
+}
 
 
 
-
-
-
-
-
-
-//.join('') method
 // function checkForWinner() {
 //     if (currentTile === 5 )
 
 // }
-
 
 

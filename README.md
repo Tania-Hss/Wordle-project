@@ -21,14 +21,9 @@ need an array of words
 
 ## animations
 
- (<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>)
- 
-[refrence](<link
-    rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />)
 
-
+[flipInX animations](https://animate.style/)
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>     
 ## functionality
 
 - function for creating the game board 
