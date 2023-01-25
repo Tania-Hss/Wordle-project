@@ -1,7 +1,10 @@
 const tileDisplay = document.querySelector('.gameboard');
 let currentTile = 1;
 let winningWord = 'start';
-let playerGuess = ['']
+
+
+// Create a global variable (object or array)that saves each letter the player enters.
+const playerLetters = []
 
 
 function createTiles() {
@@ -22,7 +25,9 @@ for(i = 0; i < keys.length; i++) {
         
         addLetterToTiles(key)
         console.log('clicked ' + key)
+        playerLetters.push(key)
     };
+    
 }
 
 
@@ -40,10 +45,8 @@ function addLetterToTiles(letter) {
 const enterbtn = document.querySelector('#enter')
 enterbtn.addEventListener('click', () => {
     console.log('clicked Enter')
-    // get all the letters the player has entered
-    // Create a global variable that saves each letter the player enters.
-    const letter = document.querySelector('.tile').textContent
-    console.log(letter)
+    console.log(playerLetters)
+    
 })
 
 
