@@ -1,7 +1,8 @@
 const tileDisplay = document.querySelector('.gameboard');
-let currentTile = 1
-
+let currentTile = 1;
 let winningWord = 'start';
+let playerGuess = ['']
+
 
 function createTiles() {
     for(i = 0; i < 30; i++) {
@@ -17,12 +18,10 @@ const keys = document.querySelectorAll('.row button');
 for(i = 0; i < keys.length; i++) {
     keys[i].onclick = ({target}) => {
         const key = target.getAttribute('data-set');
-
         
-
-
+        
         addLetterToTiles(key)
-        console.log(key)
+        console.log('clicked ' + key)
     };
 }
 
@@ -33,25 +32,31 @@ function addLetterToTiles(letter) {
         tile.textContent = letter
         currentTile = currentTile + 1
     } else {
-        console.log('nahhhh enough ')
+        window.alert('your out of guesses!')
     }
 }
 
 
 const enterbtn = document.querySelector('#enter')
 enterbtn.addEventListener('click', () => {
-    console.log('enter was clicked')
+    console.log('clicked Enter')
+    // get all the letters the player has entered
+    // Create a global variable that saves each letter the player enters.
+    const letter = document.querySelector('.tile').textContent
+    console.log(letter)
 })
-    
-
-for (let i = 0; i < winningWord.length; i++) {
-    
-    
-}
 
 
-//.charAt method returns the character at a specified index (position) in a string
 
+
+
+
+
+
+
+
+
+//.join('') method
 // function checkForWinner() {
 //     if (currentTile === 5 )
 
