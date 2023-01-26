@@ -1,9 +1,9 @@
 const tileDisplay = document.querySelector('.gameboard');
 let currentTile = 1;
 let winningWord = 'START';
+let row = 0;
 
-
-// Create a global variable (object or array)that saves each letter the player enters.
+// Create a global variable that saves each letter the player enters.
 let playerLetters = []
 
 
@@ -12,18 +12,17 @@ function createTiles() {
         const tiles = document.createElement('div')
         tiles.classList.add('tile')
         tiles.setAttribute('id', i + 1)
-        tileDisplay.appendChild(tiles);
-        tiles.classList.add('animate__animated');
+        tileDisplay.appendChild(tiles)
     }
 }
 createTiles()
+
+
 
 const keys = document.querySelectorAll('.row button');
 for(i = 0; i < keys.length; i++) {
     keys[i].onclick = ({target}) => {
         const key = target.getAttribute('data-set');
-        
-        
         addLetterToTiles(key)
         console.log('clicked ' + key)
         playerLetters.push(key)
@@ -32,16 +31,25 @@ for(i = 0; i < keys.length; i++) {
 }
 
 
+
 function addLetterToTiles(letter) {
+    
     if (currentTile <= 30) {
         const tile = document.getElementById(currentTile)
         tile.textContent = letter
         currentTile = currentTile + 1
     } else {
-        window.alert(`You Lose! The Word Is ${winningWord}`)
+        window.alert(`Bad Luck! The Word Is ${winningWord}`)
     }
+    
 }
 
+const backspacebtn = document.querySelector('#backspace')
+backspacebtn.addEventListener('click', () => {
+    console.log('clicked backspace')
+    // .remove() or .pop()
+    
+})
 
 const enterbtn = document.querySelector('#enter')
 enterbtn.addEventListener('click', () => {
@@ -51,21 +59,60 @@ enterbtn.addEventListener('click', () => {
     
 })
 
+
+
+
 function newGuess() {
     let guess = playerLetters.join('')
     console.log(guess)
-    playerLetters = []
     if (guess === winningWord){
         window.alert('You Win!')
     }
+    playerLetters.forEach((letter, i) => {
+        setTimeout(() => {
+            winningConditions(letter, i);
+
+        }, 1000);
+        
+    });
+    //setting playerLetters to an empty array removes previous guesses from array
+    playerLetters = []
+}
+
+//use set time out function to change color
+function winningConditions(letter, i) {
+    if (winningWord.includes(letter) && winningWord.charAt(i) !== letter) {
+        tile.style.backgroundColor = 'rgb(204, 204, 0)'
+        
+    } else if (winningWord.charAt(i) === letter) {
+        tile.style.backgroundColor = 'rgb(102, 204, 0)'
+        
+    } else if (!winningWord.includes(letter)) {
+        tile.style.backgroundColor = 'rgb(58, 56, 59)'
+        
+    } 
+    
+    
+    // winningWordIndex === letter ? tile.backgroundColor ='rgb(102, 204, 0)' : tile.backgroundColor = 'rgb(58, 58, 60)';
     
 }
 
+/*
+to compare the winning word to player word by the letter and the position of letter
+making tiles change color to yellow green grey depending if their word matches the winning word
+if winningword === letterposition
+if winningword === letter
 
 
-// function checkForWinner() {
-//     if (currentTile === 5 )
 
-// }
+right letter right position = green
+right letter wrong position = yellow
+wrong letter wrong position = grey
+
+bugs
+
+if player guesses word correctly stop the game 
 
 
+if player guesses word dont run the 'you lose' message anymore
+*/
