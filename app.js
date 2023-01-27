@@ -59,42 +59,40 @@ enterbtn.addEventListener('click', () => {
     
 })
 
-
-
-
 function newGuess() {
     let guess = playerLetters.join('')
     console.log(guess)
     if (guess === winningWord){
         window.alert('You Win!')
     }
+    //if row = 0 first letter in row will be 1 
+    //if row = 1 first letter in row will be 6 which is first letter of row 1  / next guess
     playerLetters.forEach((letter, i) => {
+    const firstLetterInRow = row * 5 + 1;
         setTimeout(() => {
-            winningConditions(letter, i);
-
-        }, 1000);
+            const letterIndex = firstLetterInRow + i;
+            const eachLetter = document.getElementById(letterIndex)
+            eachLetter.style.color = winningConditions(letter, i)
+        }, 500);
         
     });
-    //setting playerLetters to an empty array removes previous guesses from array
+
     playerLetters = []
 }
 
-//use set time out function to change color
+
+
 function winningConditions(letter, i) {
     if (winningWord.includes(letter) && winningWord.charAt(i) !== letter) {
-        tile.style.backgroundColor = 'rgb(204, 204, 0)'
+        return 'rgb(204, 204, 0)'
         
     } else if (winningWord.charAt(i) === letter) {
-        tile.style.backgroundColor = 'rgb(102, 204, 0)'
+        return'rgb(102, 204, 0)'
         
     } else if (!winningWord.includes(letter)) {
-        tile.style.backgroundColor = 'rgb(58, 56, 59)'
+        return 'rgb(58, 56, 59)'
         
     } 
-    
-    
-    // winningWordIndex === letter ? tile.backgroundColor ='rgb(102, 204, 0)' : tile.backgroundColor = 'rgb(58, 58, 60)';
-    
 }
 
 /*
