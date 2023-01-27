@@ -56,7 +56,6 @@ enterbtn.addEventListener('click', () => {
     console.log('clicked Enter')
     console.log(playerLetters)
     newGuess()
-    
 })
 
 function newGuess() {
@@ -72,14 +71,12 @@ function newGuess() {
         setTimeout(() => {
             const letterIndex = firstLetterInRow + i;
             const eachLetter = document.getElementById(letterIndex)
-            eachLetter.style.color = winningConditions(letter, i)
+            eachLetter.style = `background-color:${winningConditions(letter, i)}`
         }, 500);
         
     });
-
     playerLetters = []
 }
-
 
 
 function winningConditions(letter, i) {
