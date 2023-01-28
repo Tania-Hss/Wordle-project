@@ -1,10 +1,10 @@
 let winningWord = 'LOWER';
-let row = 0;
+let rowCount = 0;
 let currentTile = 1;
 // Create a global variable that saves each letter the player enters.
 let playerLetters = []
 
-
+//so im creating a for loop for my tiles
 const tileDisplay = document.querySelector('.gameboard');
 function createTiles() {
     for(i = 0; i < 30; i++) {
@@ -20,7 +20,7 @@ createTiles()
 
 
 const keys = document.querySelectorAll('.row button');
-
+//using eventlistener adding functionality to my keyboards
 for(i = 0; i < keys.length; i++) {
     keys[i].onclick = ({target}) => {
         const letter = target.getAttribute('data-set');
@@ -66,23 +66,21 @@ function newGuess() {
         window.alert('You Win!')
     }
     
-    //if row = 0 first letter in row will be 1 
-    //if row = 1 first letter in row will be 6 which is first letter of row 1  / next guess
     playerLetters.forEach((letter, i) => {
-        const firstLetterInRow = row * 5 + 1;
+        const firstLetterIndex = rowCount * 5 + 1;
         setTimeout(() => {
-            const letterIndex = firstLetterInRow + i;
+            const letterIndex = firstLetterIndex + i;
             const eachLetter = document.getElementById(letterIndex)
             eachLetter.style.backgroundColor = winningConditions(letter, i)
             eachLetter.classList.add('animate__flipInX')
         }, 500);
-    
+    // milliseconds
     });
     row = row + 1
     playerLetters = []
 }
 
-
+// execute winningconditions function after waiting for the specified time interval.
 function winningConditions(letter, i) {
     if (winningWord.includes(letter) && winningWord.charAt(i) !== letter) {
         return 'rgb(204, 204, 0)'
