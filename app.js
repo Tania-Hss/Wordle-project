@@ -4,7 +4,7 @@ let currentTile = 1;
 // Create a global variable that saves each letter the player enters.
 let playerLetters = []
 
-//so im creating a for loop for my tiles
+
 const tileDisplay = document.querySelector('.gameboard');
 function createTiles() {
     for(i = 0; i < 30; i++) {
@@ -47,8 +47,9 @@ function addLetterToTiles(letter) {
 const removeButton = document.querySelector('#backspace')
 removeButton.addEventListener('click', () => {
     console.log('clicked backspace')
-    
+    const tile = document.getElementById(currentTile)
     tile.textContent = ''
+    currentTile = currentTile - 1
     
 })
 
@@ -64,24 +65,44 @@ function newGuess() {
     console.log(guess)
     if (guess === winningWord){
         window.alert('You Win!')
-    }
-    
-    playerLetters.forEach((letter, i) => {
-        const firstLetterIndex = rowCount * 5 + 1;
-        setTimeout(() => {
-            const letterIndex = firstLetterIndex + i;
-            const eachLetter = document.getElementById(letterIndex)
-            eachLetter.style.backgroundColor = winningConditions(letter, i)
-            eachLetter.classList.add('animate__flipInX')
-        }, 500);
-    // milliseconds
-    });
-    row = row + 1
-    playerLetters = []
-}
+        playerLetters.forEach((letter, i) => {
+            const firstLetterIndex = rowCount * 5 + 1;
+            setTimeout(() => {
+                const letterIndex = firstLetterIndex + i;
+                const eachLetter = document.getElementById(letterIndex)
+                eachLetter.style.backgroundColor = winningConditions(letter, i)
+                eachLetter.classList.add('animate__flipInX')
+            }, 500);
 
-// execute winningconditions function after waiting for the specified time interval.
-function winningConditions(letter, i) {
+        });
+        rowCount = rowCount + 1
+        playerLetters = []
+        let btnGameOver = document.createElement('button')
+        btnGameOver.innerHTML = 'Play Again!'
+        let newPage = document.querySelector('.btnNewGame')
+        newPage.appendChild(btnGameOver)
+        btnGameOver.addEventListener('click', function() {
+            location.reload();
+        })
+        
+    } else {
+        playerLetters.forEach((letter, i) => {
+            const firstLetterIndex = rowCount * 5 + 1;
+            setTimeout(() => {
+                const letterIndex = firstLetterIndex + i;
+                const eachLetter = document.getElementById(letterIndex)
+                eachLetter.style.backgroundColor = winningConditions(letter, i)
+                eachLetter.classList.add('animate__flipInX')
+            }, 500);
+
+        });
+        rowCount = rowCount + 1
+        playerLetters = []
+        }
+        
+    }
+
+    function winningConditions(letter, i) {
     if (winningWord.includes(letter) && winningWord.charAt(i) !== letter) {
         return 'rgb(204, 204, 0)'
         
@@ -92,5 +113,5 @@ function winningConditions(letter, i) {
         return 'rgb(58, 56, 59)'
         
     } 
-}
+    }
 
